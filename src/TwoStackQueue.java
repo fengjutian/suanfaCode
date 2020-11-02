@@ -11,10 +11,8 @@ public class TwoStackQueue {
 
     // push栈向pop栈导入数据
     private void pushToTop() {
-        if (stackPop.empty()) {
-            while(!stackPush.empty()) {
+        while(!stackPush.empty()) {
                 stackPop.push(stackPush.pop());
-            }
         }
     }
 
@@ -24,20 +22,10 @@ public class TwoStackQueue {
     }
 
     public int poll() {
-        // 队列数据结构实现类的方法，从队首获取元素.同时获取的这个元素将从原队列删除；
-        if(stackPush.empty() && stackPush.empty()) {
-            throw new RuntimeException("Queue is empty!");
-        }
-
-        pushToTop();
         return stackPop.pop();
     }
 
     public int peek() {
-        if (stackPush.empty() && stackPop.empty()) {
-            throw new RuntimeException("Queue is empty!");
-        }
-        pushToTop();
         return stackPop.peek();
     }
 
@@ -45,8 +33,14 @@ public class TwoStackQueue {
         TwoStackQueue twoStackQueue1 = new TwoStackQueue();
 
         twoStackQueue1.add(1);
+        System.out.println(twoStackQueue1.stackPush);
+        System.out.println(twoStackQueue1.stackPop);
         twoStackQueue1.add(2);
+        System.out.println(twoStackQueue1.stackPush);
+        System.out.println(twoStackQueue1.stackPop);
         twoStackQueue1.add(3);
+        System.out.println(twoStackQueue1.stackPush);
+        System.out.println(twoStackQueue1.stackPop);
 
 
 
@@ -55,7 +49,7 @@ public class TwoStackQueue {
         System.out.println(twoStackQueue1.poll());
         System.out.println(twoStackQueue1.poll());
 
-//        System.out.println(twoStackQueue1.poll());
+
 
 
     }
